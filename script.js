@@ -6,6 +6,7 @@ const img = document.querySelector('.img');
 const temp = document.querySelector('.temp');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
+//const form = document.querySelector('form');
 
 async function getWeather(search) {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=1f17ebf852004d2cb54140322232103&q=${search}`, {mode: 'cors'});
@@ -22,8 +23,11 @@ async function getWeather(search) {
     } else console.log('error', response.status);
 }
 
+//form.addEventListener('submit', (e) => {e.preventDefault()});
+
 searchField.addEventListener('keydown', (e) => {
-    if (e.code === 'Enter'){
+    if (e.key === 'Enter'){
+        console.log(searchField.value)
         e.preventDefault();
         if (searchField.value != '') getWeather(searchField.value);
     }
