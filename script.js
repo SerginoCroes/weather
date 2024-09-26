@@ -27,7 +27,6 @@ async function getWeather(search) {
 
 searchField.addEventListener('keydown', (e) => {
     if (e.key === 'Enter'){
-        console.log(searchField.value)
         e.preventDefault();
         if (searchField.value != '') getWeather(searchField.value);
     }
